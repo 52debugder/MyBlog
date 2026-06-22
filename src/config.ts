@@ -46,7 +46,7 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.About,
 		{
 			name: "GitHub",
-			url: "https://github.com/你的用户名", // Replace with your own profile
+			url: "https://github.com/52debugder", // Replace with your own profile
 			external: true, // Show an external link icon and will open in a new tab
 		},
 	],
@@ -54,16 +54,16 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/demo-avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-	name: "你的名字",
+	name: "銘",
 	bio: "写作、开发、折腾生活。",
 	links: [
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/你的用户名",
+			url: "https://github.com/52debugder",
 		},
 		{
-			name: "Email",
+			name: "15516189556@163.com",
 			icon: "fa6-regular:envelope",
 			url: "mailto:you@example.com",
 		},
