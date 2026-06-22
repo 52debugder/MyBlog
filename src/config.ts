@@ -63,9 +63,9 @@ export const profileConfig: ProfileConfig = {
 			url: "https://github.com/52debugder",
 		},
 		{
-			name: "15516189556@163.com",
+			name: "网易邮箱",
 			icon: "fa6-regular:envelope",
-			url: "mailto:you@example.com",
+			url: "15516189556@163.com",
 		},
 	],
 };
