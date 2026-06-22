@@ -1,5 +1,4 @@
 ---
-import CoolMode from "./CoolMode.svelte";
 interface Props {
 	size?: string;
 	dot?: boolean;
@@ -8,9 +7,7 @@ interface Props {
 }
 const { dot, href, label }: Props = Astro.props;
 ---
-<CoolMode>
-    <a href={href} aria-label={label} class="btn-regular h-8 text-sm px-3 rounded-lg">
-        {dot && <div class="h-1 w-1 bg-[var(--btn-content)] dark:bg-[var(--card-bg)] transition rounded-md mr-2"></div>}
-        <slot></slot>
-    </a>
-</CoolMode>
+<a href={href} aria-label={label} class="btn-regular h-8 text-sm px-3 rounded-lg">
+    {dot && <div class="h-1 w-1 bg-[var(--btn-content)] dark:bg-[var(--card-bg)] transition rounded-md mr-2"></div>}
+    <slot></slot>
+</a>
