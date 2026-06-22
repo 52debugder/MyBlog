@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+import coverImage from "../assets/images/demo-banner.png";
+import { siteConfig } from "../config";
+import Layout from "../layouts/Layout.astro";
+import { url } from "../utils/url-utils";
+
+const coverTitle = "我的博客";
+const coverSubtitle = "记录想法、文章和项目";
+---
+
+<Layout title={coverTitle} description={coverSubtitle} lang={siteConfig.lang}>
+	<main class="relative min-h-screen overflow-hidden bg-black text-white">
+		<div class="absolute inset-0">
+			<img
+				src={coverImage.src}
+				alt=""
+				aria-hidden="true"
+				class="h-full w-full object-cover cover-pan"
+			/>
+			<div class="absolute inset-0 bg-[rgba(6,10,18,0.68)]"></div>
+			<div class="absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(to_top,rgba(6,10,18,0.92),rgba(6,10,18,0))]"></div>
+		</div>
+
+		<section class="relative z-10 flex min-h-screen items-center px-6 py-10">
+			<div class="mx-auto w-full max-w-4xl">
+				<p class="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-white/65">
+					WELCOME
+				</p>
+				<h1 class="max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
+					{coverTitle}
+				</h1>
+				<p class="mt-5 max-w-xl text-base leading-7 text-white/78 md:text-lg">
+					{coverSubtitle}
+				</p>
+
+				<div class="mt-10 flex items-center gap-4">
+					<a
+						href={url("/home/")}
+						class="inline-flex items-center gap-2 rounded-md border border-white/18 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/16 active:scale-[0.98]"
+					>
+						<Icon name="material-symbols:arrow-forward-rounded" class="text-[1.1rem]" />
+						进入博客
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.cover-pan {
+		animation: cover-pan 18s ease-in-out infinite alternate;
+	}
+
+	@keyframes cover-pan {
+		from {
+			transform: scale(1.04) translate3d(0, 0, 0);
+		}
+		to {
+			transform: scale(1.12) translate3d(0, -1.5%, 0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.cover-pan {
+			animation: none;
+		}
+	}
+</style>
