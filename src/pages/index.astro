@@ -10,7 +10,7 @@ const coverSubtitle = "记录想法、文章和项目";
 ---
 
 <Layout title={coverTitle} description={coverSubtitle} lang={siteConfig.lang}>
-	<main class="transition-swup-fade relative min-h-screen overflow-hidden bg-black text-white">
+	<main id="cover-shell" class="transition-swup-fade relative min-h-screen overflow-hidden bg-black text-white">
 		<div class="absolute inset-0">
 			<img
 				src={coverImage.src}
@@ -36,6 +36,7 @@ const coverSubtitle = "记录想法、文章和项目";
 
 				<div class="mt-10 flex items-center gap-4">
 					<a
+						id="enter-blog"
 						href={url("/home/")}
 						class="inline-flex items-center gap-2 rounded-md border border-white/18 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/16 active:scale-[0.98]"
 					>
@@ -49,6 +50,16 @@ const coverSubtitle = "记录想法、文章和项目";
 </Layout>
 
 <style>
+	:global(html.entry-transition-active) #cover-shell {
+		opacity: 0;
+		transform: translateY(0.75rem) scale(0.995);
+		filter: blur(2px);
+		transition:
+			opacity 260ms ease,
+			transform 260ms ease,
+			filter 260ms ease;
+	}
+
 	.cover-pan {
 		animation: cover-pan 18s ease-in-out infinite alternate;
 	}
@@ -66,5 +77,21 @@ const coverSubtitle = "记录想法、文章和项目";
 		.cover-pan {
 			animation: none;
 		}
+
+		:global(html.entry-transition-active) #cover-shell {
+			filter: none;
+		}
 	}
 </style>
+
+<script>
+	const ENTRY_TRANSITION_KEY = "entry-transition";
+	const enterBtn = document.getElementById("enter-blog");
+
+	if (enterBtn) {
+		enterBtn.addEventListener("click", () => {
+			sessionStorage.setItem(ENTRY_TRANSITION_KEY, "1");
+			document.documentElement.classList.add("entry-transition-active");
+		});
+	}
+</script>
